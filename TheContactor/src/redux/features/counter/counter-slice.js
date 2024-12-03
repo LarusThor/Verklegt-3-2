@@ -9,8 +9,16 @@ const counterSlice = createSlice({
         changeToB: (state) => {
             state.value = 'b';
         },
+        changeToBob: (state) => {
+            state.value = "Bob";
+        },
+        changeToSteve: (state) => {
+            state.value = "Steve";
+        }
     },
 });
 
-export const { changeToB } = counterSlice.actions;
+export const { incrementCounter } = counterSlice.actions;
+export const { changeToBob } = counterSlice.actions;
+export const { changeToSteve } = counterSlice.actions;
 export default counterSlice.reducer;
