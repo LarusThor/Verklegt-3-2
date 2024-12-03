@@ -6,7 +6,6 @@ import store from './src/redux/store';
 
 export default function App() {
   return (
-  
     <StoreProvider store={store}>
       <View style={styles.container}>
         <Counter />
