@@ -6,7 +6,7 @@ const SearchBar = () => {
     
     return (
         <View style={style.container}>
-            <TextInput>Search contacts...</TextInput>
+            <Text style={style.text}>Search contacts...</Text>
         </View>
     );
 };

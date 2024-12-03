@@ -4,7 +4,11 @@ export default StyleSheet.create({
 
     container: {
         backgroundColor: 'white',
-        margin: 50
+        margin: 50,
+    },
+
+    text: {
+        fontSize: 25
     }
 
 });
