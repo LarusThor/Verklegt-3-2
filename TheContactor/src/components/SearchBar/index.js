@@ -1,12 +1,18 @@
 import React from "react";
-import { View, TextInput, Text } from "react-native";
+import { View, TextInput, Image } from "react-native";
 import style from './styles'
+import searchImage from '../../resources/Search_tool.png'
 
 const SearchBar = () => {
     
     return (
-        <View style={style.container}>
-            <Text style={style.text}>Search contacts...</Text>
+        <View>
+            <View style={style.container}>
+                <TextInput 
+                style={style.text} 
+                placeholder='Search contacts...' />
+                <Image style={style.searchimage} source={searchImage} />
+            </View>
         </View>
     );
 };
