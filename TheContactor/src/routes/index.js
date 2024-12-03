@@ -14,7 +14,7 @@ const Routes = () => (
         <Stack.Screen name="addContact" component={addContact} />
       </Stack.Navigator>
     </NavigationContainer>
-    
-  
 );
 export default Routes;
+
+
