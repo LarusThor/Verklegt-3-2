@@ -17,6 +17,7 @@ const ContactList = ( {navigation: { navigate } } ) => {
             </View>
             <TouchableHighlight
                 onPress={() => navigate('addContact')}>
+                <Text>Add Contacts</Text>
             </TouchableHighlight>
         </View>
 
