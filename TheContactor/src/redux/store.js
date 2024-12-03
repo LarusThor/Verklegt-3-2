@@ -4,7 +4,7 @@ import stringReducer  from './features/counter/counter-slice';
 export default configureStore({
     
     reducer: {
-        counter: stringReducer, 
+        status: stringReducer, 
 
     },
 

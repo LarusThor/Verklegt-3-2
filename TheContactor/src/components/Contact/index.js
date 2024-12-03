@@ -5,7 +5,6 @@ import profilepic from '../../resources/Profile_defult.jpg'
 
 
 const Contact = () => {
-    
     return (
         <View style={style.profilecontainer}>
             <Image style={style.profileimage} source={profilepic}/>
