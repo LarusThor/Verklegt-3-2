@@ -1,16 +1,18 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import style from './styles';
+import SearchBar from '../../components/SearchBar';
+import Contact from '../../components/Contact';
 
 
 export function ContactList()  {
     return (
         <View style={style.container}>
             <View>
-                <Text>SearchBar</Text>
+                <SearchBar />
             </View>
             <View>
-                <Text>Contact List View</Text>
+                <Contact />
             </View>
         </View>
 
