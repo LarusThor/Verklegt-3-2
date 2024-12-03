@@ -6,17 +6,17 @@ import Contact from '../../components/Contact';
 
 
 
-const ContactList = ( {navigation: { navigate } } ) => {
+const ContactList = ( { navigation } ) => {
     return (
         <View style={style.container}>
             <View>
                 <SearchBar />
             </View>
             <View>
-                <Contact />
+                <Contact navigation={navigation}/>
             </View>
             <TouchableHighlight
-                onPress={() => navigate('addContact')}>
+                onPress={() => navigation.navigate('addContact')}>
                 <Text>Add Contacts</Text>
             </TouchableHighlight>
         </View>
