@@ -27,8 +27,9 @@ const AddContactForm = () => {
             photo: newPhoto,
         };
         
-    createContact(newContact)
-    dispatch(contactAdded(newContact));
+    createContact(newContact); //fileservice
+    
+    dispatch(contactAdded(newContact)); //state
     }
 
     return (

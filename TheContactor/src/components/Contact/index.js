@@ -11,6 +11,7 @@ const Contact = () => {
     const contacts = getAllContacts();
     console.log('listi:' + contacts);
     return (
+        
         <View style={style.profilecontainer}>
             <Image style={style.profileimage} source={profilepic}/>
             <Text style={style.text}>{contacts}</Text>

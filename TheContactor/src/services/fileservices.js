@@ -8,8 +8,7 @@ const createContact = async (contactInfo) => {
               "id": contactInfo.id,
               "name": contactInfo.name,
               "phoneNumber": contactInfo.phoneNumber,
-              "photo": contactInfo.photo
-            
+              "photo": contactInfo.photo,
         });
 
     const filePath = `${contactDirectory}/${contactInfo.id}.json`
@@ -43,12 +42,6 @@ export const getAllContacts = async () => {
       );
       console.log('contactar:' + contacts);
       return contacts
-    
-    // result.map(async contact => {
-    //     return {
-    //         contact
-    //     }
-    // }) 
 };
 
 export default createContact;
