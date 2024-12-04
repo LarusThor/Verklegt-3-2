@@ -35,6 +35,9 @@ export const getAllContacts = async () => {
             const filepath = `${contactDirectory}/${contactFileName}`;
             const fileContents = await FileSystem.readAsStringAsync(filepath);
             const parsedData = JSON.parse(fileContents); // Parse the JSON string
+            if (parsedData && parsedData.id) { // Ensure the contact object has an ID
+                return parsedData; // Return the contact object
+            }
             return parsedData.contact; // Return the `contact` object directly
         })
       );
