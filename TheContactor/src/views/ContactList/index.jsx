@@ -4,9 +4,8 @@ import style from './styles';
 import SearchBar from '../../components/SearchBar';
 import Contact from '../../components/Contact';
 
+const ContactList =  ( { navigation } ) => {
 
-
-const ContactList = ( { navigation } ) => {
     return (
         <View style={style.container}>
             <View>
