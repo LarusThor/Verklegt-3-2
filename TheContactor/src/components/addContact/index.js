@@ -29,7 +29,6 @@ const AddContactForm = () => {
         
     createContact(newContact)
     dispatch(contactAdded(newContact));
-        
     }
 
     return (
