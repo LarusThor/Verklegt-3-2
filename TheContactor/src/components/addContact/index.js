@@ -22,7 +22,7 @@ const AddContactForm = () => {
     const handleAddContact = () => {
         
         const newContact = {
-            id: newName+'-'+newId,
+            id: newName+'-'+contactId,
             name: newName,
             phoneNumber: newPhoneNumber,
             photo: newPhoto,
@@ -30,7 +30,6 @@ const AddContactForm = () => {
         
     createContact(newContact)
     dispatch(contactAdded(newContact));
-        
     }
 
     return (
