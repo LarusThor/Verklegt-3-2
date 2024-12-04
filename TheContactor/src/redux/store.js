@@ -1,12 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import stringReducer  from './features/counter/counter-slice';
-import contactReducer from './features/ContactList'
+import contactAdded  from './features/counter/counter-slice';
 
 export default configureStore({
     
     reducer: {
-        status: stringReducer, 
-        contact: contactReducer,
+        newContact: contactAdded, 
     },
 
 });

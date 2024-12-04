@@ -1,24 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const counterSlice = createSlice({
-    name: 'string',
-    initialState: {
-        value: '',
-    }, 
+    name: 'Contacts',
+    initialState: [],
     reducers: {
-        changeToB: (state) => {
-            state.value = 'b';
-        },
-        changeToBob: (state) => {
-            state.value = "Bob";
-        },
-        changeToSteve: (state) => {
-            state.value = "Steve";
+        contactAdded(state, action) {
+            state.push({
+                id: action.payload.id,
+                name: action.payload.name,
+                phoneNumber: action.payload.phoneNumber,
+                photo: action.payload.photo
+            })
         }
-    },
+    }
 });
 
-export const { incrementCounter } = counterSlice.actions;
-export const { changeToBob } = counterSlice.actions;
-export const { changeToSteve } = counterSlice.actions;
+export const { contactAdded } = counterSlice.actions;
 export default counterSlice.reducer;
