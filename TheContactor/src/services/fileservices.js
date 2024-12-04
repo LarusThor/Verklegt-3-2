@@ -15,6 +15,8 @@ const createContact = async (contactInfo) => {
 
     await FileSystem.writeAsStringAsync(filePath, content)
     console.log(`JSON file created at: ${filePath}`);
+    console.log("File path:", `${contactDirectory}/${contactInfo.id}.json`);
+
     const fileContents = await FileSystem.readAsStringAsync(filePath)
     console.log(`New contact: ${fileContents}`)
 
