@@ -6,18 +6,14 @@ import store from '../../redux/store'
 import { useSelector, useDispatch } from "react-redux";
 import { getAllContacts } from "../../services/fileservices";
 
-const Contact = () => {
+const Contact = (route) => {
+    
+    console.log(route)
 
-
-    
-    
-    const contacts = getAllContacts();
-    
     return (
         <View style={style.profilecontainer}>
-            <Image style={style.profileimage} source={profilepic}/>
-            <Text style={style.text}>{contacts}</Text>
-            
+            <Image style={style.profileimage} source={route.item.photo}/>
+            <Text style={style.text}>{route.item.name}</Text>
         </View>
     );
 };

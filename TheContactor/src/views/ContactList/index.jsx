@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableHighlight, FlatList } from 'react-native';
 import style from './styles';
 import SearchBar from '../../components/SearchBar';
 import Contact from '../../components/Contact';
@@ -13,6 +13,7 @@ const ContactList = ( {navigation: { navigate } } ) => {
     
     const dispatch = useDispatch()
     const contacts = useSelector((state) => state.allContacts)
+    console.log(contacts)
     
     useEffect(() => {
         const loadContacts = async () => {
@@ -27,9 +28,15 @@ const ContactList = ( {navigation: { navigate } } ) => {
             <View>
                 <SearchBar />
             </View>
-            <View>
-                <Contact />
-            </View>
+            <FlatList
+                data={contacts}
+                renderItem={({ item }) => (
+                <Contact
+                item={item}
+                />
+        )}
+        keyExtractor={(item) => item.id.toString()}
+      />
             <TouchableHighlight
                 onPress={() => navigate('addContact')}>
                 <Text>Add Contacts</Text>

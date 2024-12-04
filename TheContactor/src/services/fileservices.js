@@ -32,15 +32,14 @@ export const getAllContacts = async () => {
     const result = await FileSystem.readDirectoryAsync(contactDirectory);
     const contacts = await Promise.all(
         result.map(async (contactFileName) => {
-            const contactlist = [];
             const filepath = `${contactDirectory}/${contactFileName}`;
             const fileContents = await FileSystem.readAsStringAsync(filepath);
-            contactlist.push(fileContents);
-            return contactlist;
+            const parsedData = JSON.parse(fileContents); // Parse the JSON string
+            return parsedData.contact; // Return the `contact` object directly
         })
       );
-      return contacts
-    
+      const validContacts = contacts.filter(contact => contact !== null);
+      return validContacts; // Return only valid contacts
     // result.map(async contact => {
     //     return {
     //         contact
