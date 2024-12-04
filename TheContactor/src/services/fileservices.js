@@ -1,13 +1,7 @@
-import *  as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system';
 const contactDirectory = `${FileSystem.documentDirectory}contacts`;
 
 const createContact = async (contactInfo) => {
-    // const dirInfo = await FileSystem.getInfoAsync(contactDirectory);
-
-    // if (!dirInfo.exists) {
-    //     await FileSystem.makeDirectoryAsync(contactDirectory, { intermediates: true });
-    //   }
-
     const content = JSON.stringify({
           'contact': { 
               "id": contactInfo.id,

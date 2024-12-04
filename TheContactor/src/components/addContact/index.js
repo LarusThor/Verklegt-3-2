@@ -7,7 +7,6 @@ import { uuidv7 } from 'uuidv7';
 import createContact from '../../services/fileservices'
 
 const AddContactForm = () => {
-    const [newId, setId] = useState('');
     const [newName, setName] = useState('');
     const [newPhoneNumber, setPhoneNumber] = useState('');
     const [newPhoto, setPhoto] = useState('');
@@ -22,7 +21,7 @@ const AddContactForm = () => {
     const handleAddContact = () => {
         
         const newContact = {
-            id: newName+'-'+newId,
+            id: newName+'-'+contactId,
             name: newName,
             phoneNumber: newPhoneNumber,
             photo: newPhoto,
