@@ -1,15 +1,15 @@
 import * as FileSystem from 'expo-file-system';
+import ContactList from '../views/ContactList';
 const contactDirectory = `${FileSystem.documentDirectory}contacts`;
 
 const createContact = async (contactInfo) => {
-
+    
     const content = JSON.stringify({
-          'contact': { 
               "id": contactInfo.id,
               "name": contactInfo.name,
               "phoneNumber": contactInfo.phoneNumber,
               "photo": contactInfo.photo
-            }
+            
         });
 
     const filePath = `${contactDirectory}/${contactInfo.id}.json`
@@ -19,7 +19,7 @@ const createContact = async (contactInfo) => {
     console.log("File path:", `${contactDirectory}/${contactInfo.id}.json`);
 
     const fileContents = await FileSystem.readAsStringAsync(filePath)
-    console.log(`New contact: ${fileContents}`)
+    console.log(`New contact added!: ${fileContents}`)
 
 };
 
@@ -34,13 +34,16 @@ export const getAllContacts = async () => {
     console.log('results: ', result)
     const contacts = await Promise.all(
         result.map(async (contactFileName) => {
+            const contactlist = [];
             const filepath = `${contactDirectory}/${contactFileName}`;
             const fileContents = await FileSystem.readAsStringAsync(filepath);
-            return JSON.parse(fileContents);
+            contactlist.push(fileContents);
+            return contactlist;
         })
-    );
-
-    return contacts
+      );
+      console.log('contactar:' + contacts);
+      return contacts
+    
     // result.map(async contact => {
     //     return {
     //         contact

@@ -14,7 +14,7 @@ const AddContactForm = () => {
 
     const dispatch = useDispatch();
     const test = useSelector((state) => {
-        console.log(state);
+        //console.log(state);
         return state.contactAdded;
     });
 

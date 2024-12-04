@@ -4,15 +4,17 @@ import style from './styles'
 import profilepic from '../../resources/Profile_defult.jpg'
 import store from '../../redux/store'
 import { useSelector } from "react-redux";
+import { getAllContacts } from "../../services/fileservices";
 
 const Contact = () => {
-    
-    const contacts = useSelector(state => state.contacts)
-    console.log(contacts)
+
+    const contacts = getAllContacts();
+    console.log('listi:' + contacts);
     return (
         <View style={style.profilecontainer}>
             <Image style={style.profileimage} source={profilepic}/>
-            <Text style={style.text}>Some Contact..</Text>
+            <Text style={style.text}>{contacts}</Text>
+            
         </View>
     );
 };

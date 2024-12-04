@@ -9,8 +9,8 @@ import { getAllContacts } from '../../services/fileservices';
 const ContactList = ( {navigation: { navigate } } ) => {
 
     
-    const contacts = getAllContacts()
-    console.log(contacts)
+    
+    
     return (
         <View style={style.container}>
             <View>
@@ -23,6 +23,7 @@ const ContactList = ( {navigation: { navigate } } ) => {
                 onPress={() => navigate('addContact')}>
                 <Text>Add Contacts</Text>
             </TouchableHighlight>
+        
         </View>
 
     );
