@@ -4,9 +4,12 @@ import styles from './style'
 import { useDispatch, useSelector } from 'react-redux';
 import { contactAdded } from '../../redux/features/counter/counter-slice';
 import { uuidv7 } from 'uuidv7';
-import createContact from '../../services/fileservices'
+import createContact from '../../services/fileservices';
+import { fetchAllContacts } from '../../redux/features/contactList/contactList-slice';
+import fileService, { getAllContacts } from '../../services/fileservices';
 
-const AddContactForm = () => {
+
+const AddContactForm = ( {navigation} ) => {
     const [newName, setName] = useState('');
     const [newPhoneNumber, setPhoneNumber] = useState('');
     const [newPhoto, setPhoto] = useState('');
@@ -14,11 +17,11 @@ const AddContactForm = () => {
 
     const dispatch = useDispatch();
     const test = useSelector((state) => {
-        //console.log(state);
+        console.log(state);
         return state.contactAdded;
     });
 
-    const handleAddContact = () => {
+    const handleAddContact = async () => {
         
         const newContact = {
             id: newName+'-'+contactId,
@@ -29,8 +32,11 @@ const AddContactForm = () => {
         
     createContact(newContact); //fileservice
     
-    dispatch(contactAdded(newContact)); //state
-    }
+    //dispatch(contactAdded(newContact)); //state
+    const updatedContacts = await getAllContacts();
+    dispatch(fetchAllContacts(updatedContacts)); // Update Redux store
+    navigation.goBack();
+    };
 
     return (
         <View>

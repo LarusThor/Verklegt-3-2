@@ -27,9 +27,12 @@ const setupDirectory = async () => {
 };
 
 export const remove = async contactFileName => {
-    return FileSystem.deleteAsync(`${contactDirectory}/${contactFileName}`, { idempotent: true });
+    const name = contactFileName+'.json'
+    console.log('remove:'+contactFileName)
+    return FileSystem.deleteAsync(`${contactDirectory}/${name}`, { idempotent: true });
     
-}
+    
+};
 
 export const getAllContacts = async () => {
     await setupDirectory();
@@ -38,7 +41,8 @@ export const getAllContacts = async () => {
         result.map(async (contactFileName) => {
             const filepath = `${contactDirectory}/${contactFileName}`;
             const fileContents = await FileSystem.readAsStringAsync(filepath);
-            return JSON.parse(fileContents);
+            if (fileContents !== undefined) {
+                return JSON.parse(fileContents)};
         })
       );
       return contacts

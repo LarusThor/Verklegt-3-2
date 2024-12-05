@@ -6,13 +6,14 @@ import Contact from '../../components/Contact';
 import { getAllContacts } from '../../services/fileservices';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllContacts } from '../../redux/features/contactList/contactList-slice';
+import { useFocusEffect } from '@react-navigation/native'; 
 
 
 const ContactList = ( {navigation: { navigate } } ) => {
     
     const dispatch = useDispatch();
     const contacts = useSelector((state) => state.allContacts);
-    
+    console.log(contacts)
     
     useEffect(() => {
         const loadContacts = async () => {
@@ -21,16 +22,16 @@ const ContactList = ( {navigation: { navigate } } ) => {
         };
         loadContacts();
     }, [dispatch]);
-    
 
+    
     
     return (
         <View style={style.container}>
             <View>
                 <SearchBar />
             </View>
-                <FlatList
-                    data={contacts}
+            <FlatList
+                    data={contacts.filter((item) => item && item.id)}
                     renderItem={({ item }) => (
                         <TouchableHighlight
                             onPress={() => navigate('viewContact', {item} )}>
@@ -38,8 +39,10 @@ const ContactList = ( {navigation: { navigate } } ) => {
                         item={item}/>
                         </TouchableHighlight>
                     )}
-                    keyExtractor={(item) => item.id.toString()}
+                    
+                    keyExtractor={(item) => (item.id.toString())}
                     />
+                
             <TouchableHighlight style={style.footer}
                 onPress={() => navigate('addContact')}
                 underlayColor='green'>
