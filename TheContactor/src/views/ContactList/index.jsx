@@ -27,11 +27,12 @@ const ContactList = ( {navigation: { navigate } } ) => {
             };
             loadContacts();
         }, [dispatch]);
-
+        
     useEffect(() => {
         const results = contacts.filter(
             (contact) =>
             contact &&
+            contact.id &&
             contact.name.toLowerCase().includes(searchInput.toLowerCase())
         );
         setFilteredContacts(results);
