@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableHighlight, FlatList } from 'react-native';
 import style from './styles';
 import SearchBar from '../../components/SearchBar';
@@ -12,6 +12,8 @@ const ContactList = ( {navigation: { navigate } } ) => {
     
     const dispatch = useDispatch();
     const contacts = useSelector((state) => state.allContacts);
+    const [filteredContacts, setFilteredContacts] = useState([]);
+    const [searchInput, setSearchInput] = useState('');
     
     
     useEffect(() => {
@@ -21,13 +23,20 @@ const ContactList = ( {navigation: { navigate } } ) => {
         };
         loadContacts();
     }, [dispatch]);
+
+    useEffect(() => {
+        const results = contacts.filter((contact) =>
+            contact.name.toLowerCase().includes(searchInput.toLowerCase())
+        );
+        setFilteredContacts(results);
+    }, [contacts, searchInput]);
     
 
     
     return (
         <View style={style.container}>
             <View>
-                <SearchBar />
+                <SearchBar onSearch={setSearchInput}/>
             </View>
                 <FlatList
                     data={contacts}
