@@ -6,6 +6,7 @@ import Contact from '../../components/Contact';
 import { getAllContacts } from '../../services/fileservices';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllContacts } from '../../redux/features/contactList/contactList-slice';
+import { useFocusEffect } from '@react-navigation/native'; 
 
 
 const ContactList = ( {navigation: { navigate } } ) => {
@@ -52,8 +53,10 @@ const ContactList = ( {navigation: { navigate } } ) => {
                         item={item}/>
                         </TouchableHighlight>
                     )}
-                    keyExtractor={(item) => item.id.toString()}
+                    
+                    keyExtractor={(item) => (item.id.toString())}
                     />
+                
             <TouchableHighlight style={style.footer}
                 onPress={() => navigate('addContact')}
                 underlayColor='green'>

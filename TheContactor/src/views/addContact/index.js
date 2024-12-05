@@ -4,10 +4,10 @@ import { View, Text } from 'react-native';
 import AddContactForm from '../../components/addContact';
 
 
-const addContact = ( {navigation: { navigate } } )  => {
+const addContact = ( {navigation } )  => {
     return (
         <View>
-            <AddContactForm />
+            <AddContactForm navigation={navigation} />
         </View>
 
     );

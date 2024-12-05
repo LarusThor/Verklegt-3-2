@@ -1,18 +1,28 @@
 import React, { useEffect } from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 import ViewContactComponent from '../../components/viewContact';
-import { useSelector, useDispatch } from 'react-redux';
 import styles from './style';
-import remove from '../../services/fileservices'
+import fileService, { getAllContacts } from '../../services/fileservices';
+import { remove } from '../../services/fileservices';
+import { useDispatch } from 'react-redux';
+import { fetchAllContacts } from '../../redux/features/contactList/contactList-slice';
 
-const viewContact = ({navigation: { navigate }, route} ) => {
+const viewContact = ({navigation: { navigate }, route, navigation} ) => {
    
-    const contacts = useSelector((state) => state.allContacts);
+    const dispatch = useDispatch();
     const {item} = route.params;
-    console.log('contact name is ' + item.name);
-    console.log(route.params)
+    
+    
+
+    const removeContact = async () => {
+        await remove(item.id);
+        const updatedContacts = await getAllContacts();
+        dispatch(fetchAllContacts(updatedContacts)); // Update Redux store
+        navigation.goBack();
+     }
     
     return (
+
     <View style={styles.container}>
         <ViewContactComponent
             name = {item.name}
@@ -27,8 +37,10 @@ const viewContact = ({navigation: { navigate }, route} ) => {
             </TouchableHighlight>
         <TouchableHighlight
                 style={styles.deleteFooter}
-                onPress={() => navigate('deleteContact')}
-                underlayColor='#b30000'>
+                onPress={() => removeContact()}
+                underlayColor='#b30000'
+                
+                >
                 <Text style={styles.footerText}>Delete Contact</Text>
             </TouchableHighlight>
     </View>
