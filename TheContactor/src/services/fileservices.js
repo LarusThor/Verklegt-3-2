@@ -26,6 +26,11 @@ const setupDirectory = async () => {
     if (!dir.exists) await FileSystem.makeDirectoryAsync(contactDirectory);
 };
 
+export const remove = async contactFileName => {
+    return FileSystem.deleteAsync(`${contactDirectory}/${contactFileName}`, { idempotent: true });
+    
+}
+
 export const getAllContacts = async () => {
     await setupDirectory();
     const result = await FileSystem.readDirectoryAsync(contactDirectory);
