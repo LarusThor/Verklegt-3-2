@@ -2,8 +2,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import ContactList from '../views/ContactList';
-import addContact from '../views/addContact'
-
+import addContact from '../views/addContact';
+import viewContact from '../views/viewContact';
 const Stack = createStackNavigator();
 
 const Routes = () => (
@@ -12,6 +12,7 @@ const Routes = () => (
       <Stack.Navigator initialRouteName="ContactList">
         <Stack.Screen name="ContactList" component={ContactList} />
         <Stack.Screen name="addContact" component={addContact} />
+        <Stack.Screen name="viewContact" component={viewContact} />
       </Stack.Navigator>
     </NavigationContainer>
 );

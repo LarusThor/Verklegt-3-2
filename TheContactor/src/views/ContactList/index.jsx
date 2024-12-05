@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View, Text, TouchableHighlight, FlatList } from 'react-native';
 import style from './styles';
 import SearchBar from '../../components/SearchBar';
 import Contact from '../../components/Contact';
 import { getAllContacts } from '../../services/fileservices';
-import store from '../../redux/store';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllContacts } from '../../redux/features/contactList/contactList-slice';
 
 
 const ContactList = ( {navigation: { navigate } } ) => {
     
-    const dispatch = useDispatch()
-    const contacts = useSelector((state) => state.allContacts)
+    const dispatch = useDispatch();
+    const contacts = useSelector((state) => state.allContacts);
     
+    /*
     useEffect(() => {
         const loadContacts = async () => {
                 const allContacts = await getAllContacts();
@@ -21,22 +21,31 @@ const ContactList = ( {navigation: { navigate } } ) => {
         };
         loadContacts();
     }, [dispatch]);
+    */
 
+    
     return (
         <View style={style.container}>
             <View>
                 <SearchBar />
             </View>
-            <View>
-                <FlatList data = {data} renderItem={item}>
-                    
-                </FlatList>
-            </View>
-            <TouchableHighlight
-                onPress={() => navigate('addContact')}>
-                <Text>Add Contacts</Text>
+                <FlatList
+                    data={contacts}
+                    renderItem={({ item }) => (
+                        <TouchableHighlight
+                            onPress={() => navigate('viewContact', {item} )}>
+                    <Contact
+                        item={item}/>
+                        </TouchableHighlight>
+                    )}
+                    keyExtractor={(item) => item.id.toString()}
+                    />
+            <TouchableHighlight style={style.footer}
+                onPress={() => navigate('addContact')}
+                underlayColor='green'>
+                <Text style={style.footerText}>Add Contact</Text>
             </TouchableHighlight>
-        
+
         </View>
 
     );
