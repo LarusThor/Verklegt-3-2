@@ -17,7 +17,6 @@ const viewContact = ({navigation: { navigate }, route, navigation} ) => {
     
     const removeContact = async () => {
         await remove(item.id);
-        console.log('1')
         const updatedContacts = await getAllContacts();
         console.log(updatedContacts)
         dispatch(fetchAllContacts(updatedContacts)); // Update Redux store

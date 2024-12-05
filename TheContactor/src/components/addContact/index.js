@@ -30,36 +30,36 @@ const AddContactForm = ( {navigation} ) => {
             photo: newPhoto,
         };
         
-    createContact(newContact); //fileservice
-    
-    //dispatch(contactAdded(newContact)); //state
-    const updatedContacts = await getAllContacts();
-    dispatch(fetchAllContacts(updatedContacts)); // Update Redux store
-    navigation.goBack();
+        createContact(newContact); //fileservice
+        const updatedContacts = await getAllContacts();
+        dispatch(fetchAllContacts(updatedContacts)); // Update Redux store
+        navigation.goBack();
     };
 
     return (
-        <View>
-            <TextInput
-                style={styles.fields}
-                placeholder="Enter name"
-                value={newName}
-                onChangeText={setName}
+        <View style={styles.container}>
+            
+                <TextInput
+                    style={styles.fields}
+                    placeholder="Enter name"
+                    value={newName}
+                    onChangeText={setName}
+                />
+                <TextInput
+                    style={styles.fields}
+                    placeholder="Enter phone number"
+                    value={newPhoneNumber}
+                    onChangeText={setPhoneNumber}
+                />
+                <TextInput
+                    style={styles.fields}
+                    placeholder="Upload photo"
+                    value={newPhoto}
+                    onChangeText={setPhoto}
             />
-            <TextInput
-                style={styles.fields}
-                placeholder="Enter phone number"
-                value={newPhoneNumber}
-                onChangeText={setPhoneNumber}
-            />
-            <TextInput
-                style={styles.fields}
-                placeholder="Upload photo"
-                value={newPhoto}
-                onChangeText={setPhoto}
-            />
-            <TouchableOpacity style={styles.button} onPress={handleAddContact}>
-                <Text style={styles.buttonText}>Add contact</Text>
+            
+            <TouchableOpacity style={styles.footer} onPress={handleAddContact}>
+                <Text style={styles.footerText}>Add contact</Text>
             </TouchableOpacity>
         </View>
     );
