@@ -7,8 +7,9 @@ import { getAllContacts, remove } from "../../services/fileservices";
 import { fetchAllContacts } from "../../redux/features/contactList/contactList-slice";
 import createContact from "../../services/fileservices";
 
-const EditContact = ( {id, name, phoneNumber, photo} ) => {
-    console.log({name})
+const EditContact = ({ id, name, phoneNumber, photo, navigation }) => {
+    
+    
     const [newName, setName] = useState(name);
     const [newPhoneNumber, setPhoneNumber] = useState(phoneNumber);
     const [newPhoto, setPhoto] = useState(photo);
@@ -26,10 +27,7 @@ const EditContact = ( {id, name, phoneNumber, photo} ) => {
 
     const handleAddContact = async () => {
         
-        console.log('hi')
         removeContact();
-        console.log('new:'+newName)
-
         const newContact = {
             id: id,
             name: newName,
@@ -41,7 +39,6 @@ const EditContact = ( {id, name, phoneNumber, photo} ) => {
     createContact(newContact); //fileservice
     const updatedContacts = await getAllContacts();
     dispatch(fetchAllContacts(updatedContacts)); // Update Redux store
-    console.log('fetched');
     navigation.goBack();
     };
 

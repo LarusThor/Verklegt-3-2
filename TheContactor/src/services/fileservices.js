@@ -27,7 +27,6 @@ const setupDirectory = async () => {
 
 export const remove = async contactFileName => {
     const name = contactFileName+'.json'
-    
     return FileSystem.deleteAsync(`${contactDirectory}/${name}`, { idempotent: true });
     
     

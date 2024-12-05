@@ -4,9 +4,9 @@ import EditContact from '../../components/editContact';
 
 
 
-const editContact = ({route})  => {
+const editContact = ({ route, navigation })  => {
     
-    const info = route.params.item;
+    const info = route.params;
     
     return (
         <View>
@@ -14,7 +14,9 @@ const editContact = ({route})  => {
                 id={info.id}
                 name={info.name}
                 phoneNumber={info.phoneNumber}
-                photo={info.photo}/>
+                photo={info.photo}
+                navigation={navigation}
+                />
         </View>
 
     );
