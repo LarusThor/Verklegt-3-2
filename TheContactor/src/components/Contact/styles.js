@@ -14,7 +14,7 @@ export default StyleSheet.create({
         borderColor: 'black',
         flexDirection: 'row',
         borderRadius: 20,
-        backgroundColor: '#A4C2F9'
+        backgroundColor: '#f2f2f2'
     },
 
     text: {
