@@ -13,8 +13,9 @@ const Contact = (route) => {
     return (
         
         <View style={style.profilecontainer}>
+            <Image source={{uri: route.item.photo}} style={style.profileimage}/>
             
-            <Text> {route.item.name}, {route.item.phoneNumber}, {route.item.photo} </Text>
+            <Text style={style.text}> {route.item.name} </Text>
             
         </View>
     );
