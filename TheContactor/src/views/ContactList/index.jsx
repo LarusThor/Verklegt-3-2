@@ -13,7 +13,7 @@ const ContactList = ( {navigation: { navigate } } ) => {
     const dispatch = useDispatch();
     const contacts = useSelector((state) => state.allContacts);
     
-    /*
+    
     useEffect(() => {
         const loadContacts = async () => {
                 const allContacts = await getAllContacts();
@@ -21,7 +21,7 @@ const ContactList = ( {navigation: { navigate } } ) => {
         };
         loadContacts();
     }, [dispatch]);
-    */
+    
 
     
     return (
