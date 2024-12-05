@@ -19,13 +19,18 @@ const ContactList = ( {navigation: { navigate } } ) => {
     useEffect(() => {
         const loadContacts = async () => {
                 const allContacts = await getAllContacts();
-                dispatch(fetchAllContacts(allContacts)); // Dispatch to Redux
-        };
-        loadContacts();
-    }, [dispatch]);
+                const validContacts = allContacts.filter(
+                    (contact) => contact && contact.id && contact.name
+                );
+                dispatch(fetchAllContacts(validContacts)); // Dispatch to Redux
+            };
+            loadContacts();
+        }, [dispatch]);
 
     useEffect(() => {
-        const results = contacts.filter((contact) =>
+        const results = contacts.filter(
+            (contact) =>
+            contact &&
             contact.name.toLowerCase().includes(searchInput.toLowerCase())
         );
         setFilteredContacts(results);
@@ -39,7 +44,7 @@ const ContactList = ( {navigation: { navigate } } ) => {
                 <SearchBar onSearch={setSearchInput}/>
             </View>
                 <FlatList
-                    data={contacts}
+                    data={filteredContacts}
                     renderItem={({ item }) => (
                         <TouchableHighlight
                             onPress={() => navigate('viewContact', {item} )}>
