@@ -1,7 +1,6 @@
 import * as FileSystem from 'expo-file-system';
-import ContactList from '../views/ContactList';
-import { useDispatch } from 'react-redux';
-import { fetchAllContacts } from '../redux/features/contactList/contactList-slice';
+
+
 const contactDirectory = `${FileSystem.documentDirectory}contacts`;
 
 const createContact = async (contactInfo) => {
@@ -28,12 +27,22 @@ const setupDirectory = async () => {
 
 export const remove = async contactFileName => {
     const name = contactFileName+'.json'
-    console.log('remove:'+contactFileName)
+    
     return FileSystem.deleteAsync(`${contactDirectory}/${name}`, { idempotent: true });
     
     
 };
 
+export const getContact = async id => {
+ 
+    const filepath = `${contactDirectory}/${id}.json`;
+    
+    const fileContent = await FileSystem.readAsStringAsync(filepath);
+    
+    const result = (JSON.parse(fileContent));
+    
+    return result
+}   
 export const getAllContacts = async () => {
     await setupDirectory();
     const result = await FileSystem.readDirectoryAsync(contactDirectory);

@@ -38,8 +38,6 @@ const ContactList = ( {navigation: { navigate } } ) => {
         setFilteredContacts(results);
     }, [contacts, searchInput]);
     
-
-    
     return (
         <View style={style.container}>
             <View>

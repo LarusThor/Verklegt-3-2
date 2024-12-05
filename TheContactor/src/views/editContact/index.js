@@ -1,12 +1,20 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import EditContact from '../../components/editContact';
 
 
 
-const editContact = ( {navigation: { navigate } } )  => {
+const editContact = ({route})  => {
+    
+    const info = route.params.item;
+    
     return (
         <View>
-            <Text>edicontact view</Text>
+            <EditContact 
+                id={info.id}
+                name={info.name}
+                phoneNumber={info.phoneNumber}
+                photo={info.photo}/>
         </View>
 
     );
