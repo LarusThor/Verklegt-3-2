@@ -11,6 +11,23 @@ export default StyleSheet.create({
 
     },
 
+    icon: {
+        flex: 1,
+        fontSize: 60
+    },
+
+    callButton: {
+        position: 'fixed', 
+        bottom: 0,
+        width: '70%',
+        backgroundColor: '#00cc66',
+        borderRadius: 30,
+        padding: 10,
+        alignItems: 'center',
+        height: 90,
+        margin: 10,
+    },
+
     editFooter: {
         position: 'fixed', 
         bottom: 0,

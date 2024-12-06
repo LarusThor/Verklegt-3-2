@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {Text, TextInput, View, TouchableOpacity, TouchableHighlight, ImageBase} from 'react-native';
 import styles from './style'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { uuidv7 } from 'uuidv7';
 import createContact from '../../services/fileservices';
 import { fetchAllContacts } from '../../redux/features/contactList/contactList-slice';
@@ -23,11 +23,14 @@ const AddContactForm = ( {navigation} ) => {
         setIsAddModalOpen(false);
     };
 
+    const selectFromCameraRoll = async () => {
+        const photo = await imageService.selectFromCameraRoll();
+        setPhoto(photo)
+        setIsAddModalOpen(false);
+    }
+
     const dispatch = useDispatch();
-    const test = useSelector((state) => {
-        console.log(state);
-        return state.contactAdded;
-    });
+
 
     const handleAddContact = async () => {
         
@@ -69,7 +72,7 @@ const AddContactForm = ( {navigation} ) => {
                     isOpen={isAddModalOpen}
                     closeModal={() => setIsAddModalOpen(false)}
                     takePhoto={() => takePhoto()}
-                    selectFromCameraRoll={() => {}}
+                    selectFromCameraRoll={() => selectFromCameraRoll()}
                 />
             
             <TouchableOpacity style={styles.footer} onPress={handleAddContact}>
