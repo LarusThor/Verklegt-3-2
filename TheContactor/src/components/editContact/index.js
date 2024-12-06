@@ -32,7 +32,7 @@ const EditContact = ({ id, name, phoneNumber, photo, navigation }) => {
 
     const removeContact = async () => {
         await remove(id);
-        console.log('remove')
+        
         const updatedContacts = await getAllContacts();
         dispatch(fetchAllContacts(updatedContacts)); // Update Redux store
      };
