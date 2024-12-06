@@ -47,7 +47,8 @@ const ContactList = ( {navigation: { navigate } } ) => {
                     data={filteredContacts}
                     renderItem={({ item }) => (
                         <TouchableHighlight
-                            onPress={() => navigate('viewContact', {item} )}>
+                            onPress={() => navigate('viewContact', {item} )}
+                            underlayColor={'f9f9eb'}>
                     <Contact
                         item={item}/>
                         </TouchableHighlight>

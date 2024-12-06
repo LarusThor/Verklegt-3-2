@@ -6,7 +6,6 @@ import { getAllContacts } from '../../services/fileservices';
 import { remove } from '../../services/fileservices';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllContacts } from '../../redux/features/contactList/contactList-slice';
-import callIcon from '../../resources/CallButton.png';
 import { Entypo } from '@expo/vector-icons';
 
 const viewContact = ({navigation: { navigate }, route, navigation} ) => {

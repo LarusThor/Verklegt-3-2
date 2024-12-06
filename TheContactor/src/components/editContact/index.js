@@ -58,7 +58,7 @@ const EditContact = ({ id, name, phoneNumber, photo, navigation }) => {
     return (
         
         <View>
-            <View>
+            <View style={styles.container}>
             <TextInput
                 style={styles.fields}
                 placeholder={name}
@@ -84,8 +84,8 @@ const EditContact = ({ id, name, phoneNumber, photo, navigation }) => {
                 />
 
 
-            <TouchableOpacity style={styles.button} onPress={handleAddContact}>
-                <Text style={styles.buttonText}>Update contact</Text>
+            <TouchableOpacity style={styles.footer} onPress={handleAddContact}>
+                <Text style={styles.footerText}>Update contact</Text>
             </TouchableOpacity>
         </View>
         </View>

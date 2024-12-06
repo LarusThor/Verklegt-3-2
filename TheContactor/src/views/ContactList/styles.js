@@ -6,8 +6,7 @@ export default StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        backgroundColor: '#f9f9eb'
-
+        backgroundColor: '#f9f9eb',
     },
 
     footer: {

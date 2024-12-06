@@ -3,21 +3,19 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
 
     profilecontainer: {
-        margin: 'auto',
+        flex: 1,
         display: 'flex',
-        paddingRight: 50,
-        paddingLeft: 50,
-        paddingTop: 10,
-        paddingBottom: 10,
-        width: 435,
-        marginTop: 50,
-        borderColor: 'black',
+        padding: 10,
+        width: 380,
         flexDirection: 'row',
         borderRadius: 20,
-        backgroundColor: '#f2f2f2'
+        backgroundColor: '#f2f2f2',
+        margin: 20,
+            
     },
 
     text: {
+        
         fontSize: 25,
         margin: 10
     },
