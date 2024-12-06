@@ -33,8 +33,10 @@ const ContactList = ( {navigation: { navigate } } ) => {
             (contact) =>
             contact &&
             contact.id &&
+            typeof contact.name === 'string' &&
             contact.name.toLowerCase().includes(searchInput.toLowerCase())
-        );
+        )
+        .sort((a, b) => a.name.localeCompare(b.name));
         setFilteredContacts(results);
     }, [contacts, searchInput]);
     
