@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { View, Text, Image, ImageBackground } from 'react-native';
+import React from 'react';
+import { View, Text, Image } from 'react-native';
 import styles from './style';
 
 const ViewContact = ({name, phoneNumber, photo}) => {

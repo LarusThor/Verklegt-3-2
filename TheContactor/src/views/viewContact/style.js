@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { ReloadInstructions } from "react-native/Libraries/NewAppScreen";
 
 export default StyleSheet.create({
 

@@ -4,8 +4,9 @@ export default StyleSheet.create({
 
     container: {
         flex: 1,
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         flexDirection: 'column',
+        alignItems: 'center'
 
     },
     text: {
@@ -23,8 +24,9 @@ export default StyleSheet.create({
     },
 
     image: {
-        width: 150,
-        height: 200
+        width: 220,
+        height: 220,
+        borderRadius: 100,
     }
 
   

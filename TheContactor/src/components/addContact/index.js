@@ -9,10 +9,12 @@ import { getAllContacts } from '../../services/fileservices';
 import AddModal from '../AddModal';
 import * as imageService from '../../services/imageService';
 
+
 const AddContactForm = ( {navigation} ) => {
+    const imageAdress = 'https://i.pinimg.com/736x/bf/a9/ad/bfa9ad8ffb16b4bb194893f6e9b308ed.jpg'
     const [newName, setName] = useState('');
     const [newPhoneNumber, setPhoneNumber] = useState('');
-    const [newPhoto, setPhoto] = useState('');
+    const [newPhoto, setPhoto] = useState(imageAdress);
     const contactId = uuidv7();
 
     const [isAddModalOpen, setIsAddModalOpen] = useState(false);

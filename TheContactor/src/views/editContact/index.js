@@ -1,8 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View} from 'react-native';
 import EditContact from '../../components/editContact';
-
-
 
 const editContact = ({ route, navigation })  => {
     

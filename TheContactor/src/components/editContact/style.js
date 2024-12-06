@@ -9,9 +9,8 @@ export default StyleSheet.create({
     },
     
     fields: {
-        
         padding: 20, 
-        height: 200,
+        height: 245,
         width: '100%',
         borderWidth: 0.3,
         borderBlockEndColor: 'black',
