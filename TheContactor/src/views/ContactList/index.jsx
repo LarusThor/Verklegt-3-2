@@ -6,7 +6,7 @@ import Contact from '../../components/Contact';
 import { getAllContacts } from '../../services/fileservices';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllContacts } from '../../redux/features/contactList/contactList-slice';
-import { useFocusEffect } from '@react-navigation/native'; 
+
 
 
 const ContactList = ( {navigation: { navigate } } ) => {

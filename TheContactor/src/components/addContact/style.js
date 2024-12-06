@@ -11,11 +11,17 @@ export default StyleSheet.create({
     fields: {
         
         padding: 20, 
-        height: 245,
+        height: 200,
         width: '100%',
         borderWidth: 0.3,
         borderBlockEndColor: 'black',
         fontSize: 40,
+        alignItems: 'center'
+    },
+    text: {
+        fontSize: 40,
+        top: 50,
+        
     },
     footer: {
         position: 'fixed', 

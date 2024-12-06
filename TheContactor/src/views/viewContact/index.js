@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 import ViewContactComponent from '../../components/viewContact';
 import styles from './style';
-import fileService, { getAllContacts } from '../../services/fileservices';
+import { getAllContacts } from '../../services/fileservices';
 import { remove, getContact } from '../../services/fileservices';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllContacts } from '../../redux/features/contactList/contactList-slice';
@@ -16,18 +16,19 @@ const viewContact = ({navigation: { navigate }, route, navigation} ) => {
     const contact = contacts.find((contact) => contact.id === item.id)
 
     useEffect (() => {
+        console.log('contact1: '+ contact)
         if (!contact) {
             navigation.goBack();
         };
     }, [contact, navigation]);
     
     const removeContact = async () => {
-        
         await remove(contact.id);
         const updatedContacts = await getAllContacts();
         console.log('hello:' + updatedContacts)
         dispatch(fetchAllContacts(updatedContacts)); // Update Redux store
      };
+
     
     if (!contact) {
         return null;
