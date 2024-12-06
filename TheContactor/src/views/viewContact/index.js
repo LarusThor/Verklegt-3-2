@@ -14,23 +14,32 @@ const viewContact = ({navigation: { navigate }, route, navigation} ) => {
 
     const contacts = useSelector((state) => state.allContacts);
     const contact = contacts.find((contact) => contact.id === item.id)
+
+    useEffect (() => {
+        if (!contact) {
+            navigation.goBack();
+        };
+    }, [contact, navigation]);
     
     const removeContact = async () => {
-        await remove(item.id);
+        
+        await remove(contact.id);
         const updatedContacts = await getAllContacts();
-        console.log(updatedContacts)
+        console.log('hello:' + updatedContacts)
         dispatch(fetchAllContacts(updatedContacts)); // Update Redux store
-        navigation.goBack();
      };
     
+    if (!contact) {
+        return null;
+    };
     
     return (
 
     <View style={styles.container}>
         <ViewContactComponent
-            name = {item.name}
-            phoneNumber = {item.phoneNumber}
-            photo = {item.photo}
+            name = {contact.name}
+            phoneNumber = {contact.phoneNumber}
+            photo = {contact.photo}
         />
         <TouchableHighlight
                 style={styles.editFooter}

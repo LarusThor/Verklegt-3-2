@@ -13,8 +13,8 @@ export default StyleSheet.create({
         padding: 20, 
         height: 245,
         width: '100%',
-        borderWidth: 1,
-        borderBlockEndColor: 'red',
+        borderWidth: 0.3,
+        borderBlockEndColor: 'black',
         fontSize: 40,
     },
     footer: {

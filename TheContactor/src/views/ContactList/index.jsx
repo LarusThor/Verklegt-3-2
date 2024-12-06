@@ -27,7 +27,7 @@ const ContactList = ( {navigation: { navigate } } ) => {
             };
             loadContacts();
         }, [dispatch]);
-        
+       
     useEffect(() => {
         const results = contacts.filter(
             (contact) =>
